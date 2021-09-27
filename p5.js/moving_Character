@@ -1,0 +1,31 @@
+let x = 200;
+let y = 200;
+let xSpeed = 5;
+let ySpeed = 5;
+let img;
+function preload() {
+  img = loadImage('mario paper.gif');
+}
+
+function setup() {
+  createCanvas(400, 400);
+
+}
+
+function draw() {
+  background(255);
+    image(img, x, y, 200, 200);
+  
+  if(keyIsPressed && keyCode === RIGHT_ARROW){
+  x += xSpeed;
+  }
+  if(keyIsPressed && keyCode === LEFT_ARROW){
+    x -= xSpeed;
+  }
+  if(keyIsPressed && keyCode === UP_ARROW){
+    y -= ySpeed;
+  }
+  if(keyIsPressed && keyCode === DOWN_ARROW){
+    y += ySpeed;
+  }
+}

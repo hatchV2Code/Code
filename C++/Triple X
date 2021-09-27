@@ -1,0 +1,64 @@
+#include <iostream>
+#include <ctime>
+
+void PrintIntro(int Difficulty)
+{
+    std::cout << "\n\nYou are a secret agent breaking into a secure server room LEVEL " << Difficulty;
+    std::cout << "\nEnter the correct code to continue...\n";
+}
+bool PlayGame(int Difficulty)
+{
+    PrintIntro(Difficulty);
+/*variables */
+    const int CodeA = rand() % Difficulty + 1;
+    const int CodeB = rand() % Difficulty + 1;
+    const int CodeC = rand() % Difficulty + 1;
+
+    const int CodeSum = CodeA + CodeB + CodeC;
+    const int CodeSum2 = CodeA * CodeB * CodeC;
+
+    //std::cout << std::endl;
+    std::cout << "\nThere are 3 numbers in the code\n";
+    std::cout << "The codes add up to: " << CodeSum;
+    std::cout << "\nThe codes multiply to give: " << CodeSum2 << std::endl;
+    //stores player's guess
+    int GuessA, GuessB, GuessC;
+    std::cin >> GuessA >> GuessB >> GuessC;
+
+    int GuessSum = GuessA + GuessB + GuessC;
+    int GuessSum2 = GuessA * GuessB * GuessC;
+    //checks the guess
+    if(GuessSum == CodeSum && GuessSum2 == CodeSum2)
+    {
+        std::cout << "\nVery Good";
+        return true;
+    }
+    else
+    {
+        std::cout << "\n..really?!";
+        return false;
+    }
+}
+//this is a hAXOR
+int main()
+{
+    srand(time(NULL)); //create new random seq based on time of day
+
+    int LevelDifficulty = 1;
+    const int MaxLevel = 5;
+
+    while (LevelDifficulty <= MaxLevel) //loop until game complete
+    {
+        bool bLevelComplete = PlayGame(LevelDifficulty);
+        std::cin.clear();//Clears errors
+        std::cin.ignore();//discards buffer
+
+        if (bLevelComplete)
+        {
+            ++LevelDifficulty;
+        }
+        
+    }
+    std::cout << "\nHm, not bad human. You pass\n";
+    return 0;
+}

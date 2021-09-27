@@ -1,0 +1,135 @@
+import random
+import getpass
+while True:
+  myList = ['rock', 'paper', 'scissor']
+  slangList = ["kay~', got'it!~", "I'gotttyu~", "Noooiiice~", "Ghaddi~", "Okehh...~", "FOIinne~"]
+  print("This game requires 2 players, press '1' for one player, press '2' for two player.")
+  gameChoice = int(input())
+  cpuChoice = random.choice(myList)
+    
+  if gameChoice == 1:
+    print("Choose [PLAYER]: rock, paper, or scissor? (/] , 8< , []) /or go 'BACK'/")
+    yourChoice = input()
+      
+    if (yourChoice == 'rock'):
+      print("/] ~ ")
+        
+      if(cpuChoice == 'rock'):
+        print("Computer chose ROCK too, it's a tie!")
+        print("--> /] ~ /] <--")
+        
+      elif(cpuChoice == 'paper'):
+        print("Computer chose PAPER, computer wins!")
+        print("/] ~ [] <--")
+        
+      elif(cpuChoice == 'scissor'):
+        print("Computer chose SCISSOR, you win!")
+        print("--> /] ~ 8<")
+      
+    if (yourChoice == 'scissor'):
+      print("8< ~ ")
+        
+      if(cpuChoice == 'scissor'):
+        print("Computer chose SCISSOR too, it's a tie!")
+        print("--> 8< ~ 8< <--")
+       
+      elif(cpuChoice == 'rock'):
+        print("Computer chose ROCK, computer wins!")
+        print("8< ~ /] <--")
+        
+      elif(cpuChoice == 'paper'):
+        print("Computer chose PAPER,you win!")
+        print("--> 8< ~ []")
+      
+    if (yourChoice == 'paper'):
+      print("[] ~ ")
+        
+      if(cpuChoice == 'paper'):
+        print("Computer chose PAPER too, it's a tie!")
+        print("--> [] ~ [] <--")
+        
+      elif(cpuChoice == 'scissor'):
+        print("Computer chose SCISSOR, computer wins!")
+        print("[] ~ 8< <--")
+        
+      elif(cpuChoice == 'rock'):
+        print("Computer chose ROCK, you win!")
+        print("--> [] ~ /]")
+      
+    elif (yourChoice == 'BACK'):
+      break
+      
+    else:
+      print("plz-tri-agn")
+  
+  if gameChoice == 2:
+    print("Choose [PLAYER ONE]: rock, paper, or scissor? (/] , 8< , [])")
+    firstChoice = getpass.getpass(prompt='Hidden: ', stream=None)
+    print(random.choice(slangList))
+    print("Choose [PLAYER TWO]: rock, paper, or scissor? (/] , 8< , [])")
+    secondChoice = getpass.getpass(prompt='Hidden: ', stream=None)
+    print(random.choice(slangList))
+      
+    if (firstChoice == 'rock'):
+          
+      if(secondChoice == 'rock'):
+        print("First player chose ROCK, second player chose ROCK; It's a tie!")
+        print("--> /] ~ /] <--")
+            
+      elif(secondChoice == 'paper'):
+        print("First player chose ROCK, second player chose PAPER; Second player wins!")
+        print("/] ~ [] <--")
+            
+      elif(secondChoice == 'scissor'):
+        print("First player chose ROCK, second player chose SCISSOR; First player wins!")
+        print("--> /] ~ 8<")
+          
+    if (firstChoice == 'scissor'):
+
+      if(secondChoice == 'scissor'):
+        print("First player chose SCISSOR, second player chose SCISSOR; It's a tie!")
+        print("--> 8< ~ 8< <--")
+            
+      elif(secondChoice == 'rock'):
+        print("First player chose SCISSOR, second player chose ROCK; Second Player wins!")
+        print("8< ~ /] <--")
+            
+      elif(secondChoice == 'paper'):
+        print("First player chose SCISSOR, second player chose PAPER; first player wins!")
+        print("--> 8< ~ []")
+          
+    if (firstChoice == 'paper'):
+            
+      if(secondChoice == 'paper'):
+        print("First player chose PAPER, second player chose PAPER; It's a tie!")
+        print("--> [] ~ [] <--")   
+            
+      elif(secondChoice == 'scissor'):
+        print("First player chose PAPER, second player chose SCISSOR; Second player wins!")
+        print("[] ~ 8<  <--")
+            
+      elif(secondChoice == 'rock'):
+        print("First player chose PAPER, second player chose ROCK; First player wins!")
+        print("--> [] ~ /]")
+      
+  else:
+    print("plz-tri-agn")
+  
+  print("Would you like to restart or try again?")
+  restartAns = input()
+  
+  if (restartAns == "yes"):
+    continue
+  
+  elif (restartAns == "no"):
+    print("Goodbye, thoinks fur playing!")
+    break
+# This game requires 2 players. Ask the user if they want Rock, Paper or Sissors. 
+# R = Rock, P = Paper, S = Siccors
+#[ ] 
+#(\/)
+#O
+#Create conditions for winning
+#Create conditions for losing
+#Create conditions for a tie
+#If they tie have a result say Tie. If player 1 wins the result should say Player 1 wins!!! If player 2 wins it should say Player 2 wins!!!

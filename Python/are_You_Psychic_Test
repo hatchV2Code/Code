@@ -1,0 +1,48 @@
+#1. generate a random number between 100 and 9999 by using random.randint() YUP
+#2. use a while loop to allow the user to make continuous guesses, and check to 
+   #if they guess correctly
+
+#note I could reduce code by doing else: but I learn more by doing elif
+#all done by me. It was like a reg hatch project took hours to do it and it was fun :)
+import random
+
+i = 0
+new_num_rand = random.randint(100,999)
+tries = 10
+print("loading...\n")
+print("Enter name:")
+message = input()
+print("\nWelcome " + message)
+print("\nChoose a number between 100,999\n")
+while True:
+  a = int(input())
+  x1 = (new_num_rand//100) #1st digit of random #
+  x2 = (new_num_rand//10) #2nd
+  x3 = (new_num_rand//1) #3rd
+  i += 1
+
+  print("\nGuess#" +str(i)) #prints another 
+  if(a != new_num_rand):
+    #print(new_num_rand)
+    tries -= 1
+    if(a < new_num_rand):
+      print(str(a) + " is low. You have " + str(tries) + " tries left\n")
+    elif(a > new_num_rand):
+      print(str(a) + " is high. You have " + str(tries) + " tries left\n")
+   #hints
+    if(tries == 7 and new_num_rand % 2 == 0): # %2 == 0 means / by 2 no remainder
+      print("[hint]It is an even#")
+    elif(tries == 7 and new_num_rand % 2 != 0):
+      print("[hint]It is an odd#")
+    elif(tries == 6):
+      print("[hint]1st digit is " + str(x1))
+    elif(tries == 5):
+      print("[hint]1st and 2nd digit is " + str(x2))
+    elif(tries == 0):
+      print("Uh-oh, better luck next time!")
+      break
+  elif(a == new_num_rand):
+    print("YES! That is correct")
+    if(tries >= 3 and a == new_num_rand):
+      print("Whoa. You MuSt bE PsYcHiC")
+    break
